@@ -41,7 +41,7 @@ const DevicePage: React.FC = () => {
 
   return (
     <div className="page-container">
-      <Header onLogout={handleLogout} title='DEVICES' />
+      <Header onLogout={handleLogout}/>
       <main className="dispositivos-content">
         
         <div className="filters">

@@ -1,0 +1,26 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dispositivos-content {
+  padding: 2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+select {
+  padding: 0.5rem;
+}
+
+.chart {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}

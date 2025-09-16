@@ -4,6 +4,7 @@ import './App.css';
 import LoginPage from '../Login/loginPage';
 import HomePage from '../Home/homePage';
 import PrivateRoute from '../PrivateRoute/privateRoute';
+import DevicePage from '../Devices/devices';
 
 function App() {
   return (
@@ -16,6 +17,14 @@ function App() {
           </PrivateRoute>
         } />
         <Route path="*" element={<Navigate to="/login" />} />
+        <Route
+          path="/devices"
+          element={
+            <PrivateRoute>
+              <DevicePage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   );

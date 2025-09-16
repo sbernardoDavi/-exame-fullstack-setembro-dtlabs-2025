@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import './login.css'; 
+
+function LoginPage() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+    console.log('Usuário:', username);
+    console.log('Senha:', password);
+    alert(`Logando com: ${username}`);
+  };
+
+  return (
+    <div className="login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin} className="login-form">
+        <div className='login-input-group'>
+          <label className='login-label'>
+            Usuário:
+          </label>
+          <input
+          className='login-input'
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className='login-input-group'>
+          <label className='login-label'>
+            Senha:
+          </label>
+          <input
+            className='login-input'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+      
+        <button type="submit">Logar</button>
+      </form>
+    </div>
+  );
+}
+
+export default LoginPage;

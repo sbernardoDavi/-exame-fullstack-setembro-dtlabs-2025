@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# -exame-fullstack-setembro-dtlabs-2025
+Projeto AVALIAÇÃO PRÁTICA - DESENVOLVEDOR(A) FULL  STACK  dt.labs
+>>>>>>> 16a88f7183ed14433e34bf8d0085a644589d3fb4

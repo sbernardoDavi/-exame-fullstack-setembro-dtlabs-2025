@@ -44,6 +44,7 @@ button:hover {
 h2 {
   color: #1976d2;
   margin: 0 0 50px 0;
+  text-align: center;
 }
 
 .login-label {
@@ -52,6 +53,7 @@ h2 {
   text-align: left;
   display: block;
   margin: 0 0;
+  margin-right: 20px;
 }
 
 .login-input-group {

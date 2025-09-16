@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import './login.css'; 
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e: any) => {
     e.preventDefault();
     console.log('Usuário:', username);
     console.log('Senha:', password);
     alert(`Logando com: ${username}`);
+
+    // Simulando login com token
+    localStorage.setItem('token', 'fake-token');
+
+    // Redireciona para /home
+    navigate('/home');
+
   };
 
   return (
@@ -21,7 +30,8 @@ function LoginPage() {
             Usuário:
           </label>
           <input
-          className='login-input'
+            className='login-input'
+            title='Digite seu nome de usuário'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -35,6 +45,7 @@ function LoginPage() {
           </label>
           <input
             className='login-input'
+            title='Digite sua senha' color='red'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

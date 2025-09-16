@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/header';
 import './home.css';
 
 interface Device {
@@ -44,7 +45,6 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    //Simulando Retorno de API
     setTimeout(() => {
       setDevices(mockDevices);
     }, 500);
@@ -58,10 +58,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      <header className="home-header">
-        <h1>Dashboard de Dispositivos</h1>
-        <button onClick={handleLogout} className="logout-button">Logout</button>
-      </header>
+      <Header title="HOME" onLogout={handleLogout} />
 
       <main className="home-container">
         <div className="device-grid">

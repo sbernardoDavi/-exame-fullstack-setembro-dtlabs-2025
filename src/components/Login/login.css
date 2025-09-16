@@ -42,9 +42,8 @@ button:hover {
 }
 
 h2 {
-  text-align: center;
   color: #1976d2;
-  margin-bottom: 20px;
+  margin: 0 0 50px 0;
 }
 
 .login-label {

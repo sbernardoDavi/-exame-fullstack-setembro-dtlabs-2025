@@ -10,15 +10,30 @@
     border: solid 1px #1976d2;
     margin: 30px;
     align-items: center;
+    height: 40px;
 }
 
-h1{
-    color: #1976d2;
-    margin-left: 5%;
-    font-size: 20px;
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
 }
+
+.nav-links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a.active {
+  border-bottom: 2px solid #61dafb;
+}
+
 
 .logout-button{
   margin-right: 30px;
   align-items: center;
+}
+
+.logout-button:hover {
+  background-color: #d62828;
 }

@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      <Header title="HOME" onLogout={handleLogout} />
+      <Header onLogout={handleLogout} />
 
       <main className="home-container">
         <div className="device-grid">

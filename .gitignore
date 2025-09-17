@@ -1,19 +1,37 @@
-# Node.js
-server/node_modules/
+# ========================
+# Geral
+# ========================
+node_modules/
+*.log
+.env
+.env.*  # .env.local, .env.development, etc
+.DS_Store
+Thumbs.db
 
-# React
+# ========================
+# React (client/)
+# ========================
 client/node_modules/
 client/build/
 client/dist/
+client/.env
+client/.env.*
 
-# Ambiente
-.env
-*.env
+# React cache (caso use Vite ou similares no futuro)
+client/.vite/
+client/.parcel-cache/
+client/.next/
 
-# Logs
-*.log
+# ========================
+# Node (server/)
+# ========================
+server/node_modules/
+server/dist/
+server/.env
 
-# IDEs
+# ========================
+# Editor / IDE
+# ========================
 .vscode/
 .idea/
-.DS_Store
+*.swp

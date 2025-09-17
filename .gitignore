@@ -17,13 +17,13 @@ client/dist/
 client/.env
 client/.env.*
 
-# React cache (caso use Vite ou similares no futuro)
+# React cache
 client/.vite/
 client/.parcel-cache/
 client/.next/
 
 # ========================
-# Node (server/)
+# Node
 # ========================
 server/node_modules/
 server/dist/

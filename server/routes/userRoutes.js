@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
 const User = require('../models/users');
+const authMiddleware = require('./authMiddleware');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Listar usuários
-router.get('/users', async (req, res) => {
+router.get('/users', authMiddleware, async (req, res) => {
   try {
     const users = await User.find({}, { passwordHash: 0 });
     res.json(users);

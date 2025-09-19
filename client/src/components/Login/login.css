@@ -42,7 +42,7 @@ h2 {
 
 .login-input-group {
   display: flex;
-  flex-direction: row; /* <- Alinha label e input um em cima do outro */
+  flex-direction: row;
   margin-bottom: 20px;
 }
 
@@ -68,7 +68,6 @@ button:hover {
   margin-top: -10px;
 }
 
-/* Responsividade básica */
 @media (max-width: 500px) {
   .login-container {
     margin: 30px 20px;

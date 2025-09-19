@@ -1,31 +1,49 @@
 .login-container {
-  width: 500px;
-  margin: 100px auto;
-  padding: 50px;
-  border: 1px solid #ccc;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   display: flex;
-  align-content: space-between;
   flex-direction: column;
+  gap: 20px;
+}
+
+h2 {
+  color: #1976d2;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.login-form label {
-  margin-bottom: 15px;
-}
 
-.login-form input {
-  padding: 9px;
-  margin-top: 5px;
-  border: 1px solid #aaa;
+.login-input {
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
+  margin-left: 15px;
   width: 100%;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.login-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: row; /* <- Alinha label e input um em cima do outro */
+  margin-bottom: 20px;
 }
 
 button {
@@ -35,42 +53,25 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #125ea5;
 }
 
-h2 {
-  color: #1976d2;
-  margin: 0 0 50px 0;
-  text-align: center;
-}
-
-.login-label {
-  font-weight: bold;
-  color: #125ea5;
-  text-align: left;
-  display: block;
-  margin: 0 0;
-  margin-right: 20px;
-}
-
-.login-input-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.login-input{
-  margin-left: 10px;
-  margin-bottom: 10px;
-
-}
-
 .error-message {
   color: red;
-  margin-top: 10px;
   font-weight: bold;
   text-align: center;
+  margin-top: -10px;
+}
+
+/* Responsividade básica */
+@media (max-width: 500px) {
+  .login-container {
+    margin: 30px 20px;
+    padding: 30px 20px;
+  }
 }

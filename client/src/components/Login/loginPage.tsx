@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './login.css'; 
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth';
+import { FcMultipleSmartphones } from "react-icons/fc";
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -23,15 +24,13 @@ function LoginPage() {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2> <FcMultipleSmartphones /> Login</h2>
       <form onSubmit={handleLogin} className="login-form">
-        <div className='login-input-group'>
-          <label className='login-label'>
-            Usuário:
-          </label>
+        <div className="login-input-group">
+          {/* <label className="login-label">Usuário:</label> */}
           <input
-            className='login-input'
-            title='Digite seu nome de usuário'
+            className="login-input"
+             placeholder="Usuário"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -39,19 +38,18 @@ function LoginPage() {
           />
         </div>
 
-        <div className='login-input-group'>
-          <label className='login-label'>
-            Senha:
-          </label>
+        <div className="login-input-group">
+          {/* <label className="login-label">Senha:</label> */}
           <input
-            className='login-input'
-            title='Digite sua senha' color='red'
+            className="login-input"
+            placeholder="Senha"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
+
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Logar</button>
       </form>

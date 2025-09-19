@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import './login.css'; 
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../services/auth';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: any) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Usuário:', username);
-    console.log('Senha:', password);
-    alert(`Logando com: ${username}`);
 
-    // Simulando login com token
-    localStorage.setItem('token', 'fake-token');
-
-    // Redireciona para /home
-    navigate('/home');
-
+    try {
+      const token = await login(username, password);
+      localStorage.setItem('token', token);
+      navigate('/home');
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
 
   return (

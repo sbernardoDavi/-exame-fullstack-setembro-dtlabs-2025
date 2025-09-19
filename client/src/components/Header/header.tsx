@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import NotificationIcon from '../Notification/notification';
 import './header.css';
 
 interface HeaderProps {
@@ -17,12 +18,15 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
   return (
     <header className="header-app">
       <nav className="nav-links">
-        <NavLink to="/home" style={{ marginLeft: '20px' }} className={({ isActive }) => isActive ? 'active' : ''}>HOME</NavLink>
+        <NavLink to="/home" className={({ isActive }) => isActive ? 'active' : ''}>HOME</NavLink>
         <NavLink to="/devices" className={({ isActive }) => isActive ? 'active' : ''}>DEVICES</NavLink>
         <NavLink to="/notification" className={({ isActive }) => isActive ? 'active' : ''}>NOTIFICATION</NavLink>
       </nav>
 
-      <button onClick={handleLogout} className="logout-button">Logout</button>
+      <div className="header-actions">
+        <NotificationIcon hasNotifications={true} />
+        <button onClick={handleLogout} className="logout-button">Logout</button>
+      </div>
     </header>
   );
 };

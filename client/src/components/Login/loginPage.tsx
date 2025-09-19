@@ -7,6 +7,7 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ function LoginPage() {
       localStorage.setItem('token', token);
       navigate('/home');
     } catch (error: any) {
-      alert(error.message);
+      setErrorMessage(error.message || 'Erro ao fazer login, Usuário ou senha inválidos.');
     }
   };
 
@@ -51,7 +52,7 @@ function LoginPage() {
             required
           />
         </div>
-      
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Logar</button>
       </form>
     </div>

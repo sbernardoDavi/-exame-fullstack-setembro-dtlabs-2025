@@ -5,6 +5,7 @@ import LoginPage from '../Login/loginPage';
 import HomePage from '../Home/homePage';
 import PrivateRoute from '../PrivateRoute/privateRoute';
 import DevicePage from '../Devices/devices';
+import RegisterPage from '../Register/register';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
   );

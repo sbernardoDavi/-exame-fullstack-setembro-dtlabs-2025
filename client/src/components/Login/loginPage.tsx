@@ -22,6 +22,10 @@ function LoginPage() {
     }
   };
 
+  const handleRegister = () => {
+    navigate('/register');
+  }
+
   return (
     <div className="login-container">
       <h2> <FcMultipleSmartphones /> Login</h2>
@@ -49,9 +53,17 @@ function LoginPage() {
             required
           />
         </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
+          <a className='remember' href='#'>
+            Esqueceu a senha?
+          </a>
+        </div>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit">Logar</button>
+        <div className='button-group'>
+          <button className='button-login' type="submit">Logar</button>
+          <button className='button-register' onClick={handleRegister}>Cadastrar</button>
+        </div>
       </form>
     </div>
   );

@@ -24,7 +24,9 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
       </nav>
 
       <div className="header-actions">
-        <NotificationIcon hasNotifications={true} />
+        <div className="notification-icon-wrapper">
+          <NotificationIcon hasNotifications={true} />
+        </div>
         <button onClick={handleLogout} className="logout-button">Logout</button>
       </div>
     </header>

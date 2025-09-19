@@ -21,6 +21,11 @@
   font-weight: bold;
 }
 
+.nav-links a:hover {
+  background-color: #1976d2;
+  color: white;
+}
+
 .nav-links a.active {
   border-bottom: 2px solid #1976d2;
 }
@@ -48,4 +53,14 @@
 
 .notification-container {
   position: relative;
+}
+
+.notification-icon-wrapper {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.notification-icon-wrapper:hover {
+  transform: scale(1.1);
 }

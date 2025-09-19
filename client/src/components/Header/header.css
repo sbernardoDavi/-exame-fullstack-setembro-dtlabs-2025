@@ -25,13 +25,14 @@
 }
 
 .nav-links a.active {
-  border-bottom: 2px solid #61dafb;
+  border-bottom: 2px solid #000000;
 }
 
 
 .logout-button{
   margin-right: 30px;
   align-items: center;
+  padding: 8px !important;
 }
 
 .logout-button:hover {

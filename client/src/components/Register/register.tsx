@@ -42,8 +42,9 @@ function RegisterPage() {
           required
         />
 
-        <button type="submit">Cadastrar</button>
-
+        <div style={{ display: "flex", justifyContent: "center" }}> 
+            <button style={{ width: "60%" }} type="submit">Cadastrar</button>
+        </div>
         {message && <p className="register-message">{message}</p>}
       </form>
     </div>

@@ -4,9 +4,8 @@ const { v4: uuidv4 } = require('uuid');
 const authMiddleware = require('../middleware/authMiddleware');
 const Device = require('../models/device');
 
-router.use(authMiddleware);
 
-router.post('/devices', async (req, res) => {
+router.post('/devices', authMiddleware, async (req, res) => {
   const { name, location, sn, description } = req.body;
 
   if (!name || !location || !sn) {
@@ -34,7 +33,7 @@ router.post('/devices', async (req, res) => {
   }
 });
 
-router.get('/devices', async (req, res) => {
+router.get('/devices', authMiddleware, async (req, res) => {
   try {
     const devices = await Device.find({ user_id: req.user.id });
     res.json(devices);
@@ -64,7 +63,7 @@ router.put('/devices/:id', async (req, res) => {
 });
 
 
-router.delete('/devices/:id', async (req, res) => {
+router.delete('/devices/:id', authMiddleware, async (req, res) => {
   try {
     const result = await Device.findOneAndDelete({ _id: req.params.id, user_id: req.user.id });
 

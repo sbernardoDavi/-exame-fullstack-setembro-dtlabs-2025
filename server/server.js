@@ -6,6 +6,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const deviceRoutes = require('./routes/deviceRoutes');
+const forgotPasswordRoute = require('./routes/forgotPassword');
 
 
 //ENV   
@@ -23,7 +24,8 @@ connectDB();
 
 //Rotas
 app.use('/api', userRoutes);
-app.use('/api/devices', deviceRoutes);
+app.use('/api/', deviceRoutes);
+app.use('/api/', forgotPasswordRoute);
 
 
 app.listen(PORT, () => {

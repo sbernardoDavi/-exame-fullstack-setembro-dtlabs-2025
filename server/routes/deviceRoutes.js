@@ -47,7 +47,7 @@ router.put('/devices/:id', async (req, res) => {
 
   try {
     const updatedDevice = await Device.findOneAndUpdate(
-      { _id: req.params.id, user_id: req.user.id },
+      { uuid: req.params.id},
       { name, location, sn, description },
       { new: true }
     );
@@ -65,7 +65,7 @@ router.put('/devices/:id', async (req, res) => {
 
 router.delete('/devices/:id', authMiddleware, async (req, res) => {
   try {
-    const result = await Device.findOneAndDelete({ _id: req.params.id, user_id: req.user.id });
+    const result = await Device.findOneAndDelete({ uuid: req.params.id});
 
     if (!result) {
       return res.status(404).json({ error: 'Dispositivo não encontrado ou acesso negado' });

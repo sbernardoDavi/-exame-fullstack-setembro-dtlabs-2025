@@ -22,6 +22,10 @@ function RegisterPage() {
     }
   };
 
+  const handleBack = () => {
+    navigate('/login');
+  }
+
   return (
     <div className="register-container">
       <h2> <FaUserPlus /> Cadastro</h2>
@@ -42,8 +46,9 @@ function RegisterPage() {
           required
         />
 
-        <div style={{ display: "flex", justifyContent: "center" }}> 
+        <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", gap: "10px" }}> 
             <button style={{ width: "60%" }} type="submit">Cadastrar</button>
+            <button style={{ width: "60%" , backgroundColor: "#1976d2"}} onClick={handleBack} >Voltar</button>
         </div>
         {message && <p className="register-message">{message}</p>}
       </form>

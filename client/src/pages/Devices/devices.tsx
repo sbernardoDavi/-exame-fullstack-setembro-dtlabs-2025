@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Device } from '../../types/device';
 import { fetchDevices, createDevice, updateDevice, deleteDevice } from '../../services/deviceService';
@@ -18,38 +19,16 @@ const DevicesPage = () => {
 
   const user_id = localStorage.getItem('user_id') || '';
   const loadDevices = async () => {
-    // const data = await fetchDevices(user_id);
-    const mockDevices: Device[] = [
-      {
-        uuid: '11111111-1111-1111-1111-111111111111',
-        name: 'Dispositivo A',
-        location: 'Sala 1',
-        sn: '123456789012',
-        description: 'Monitor principal',
-        user_id: 'fake-user-id',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      {
-        uuid: '22222222-2222-2222-2222-222222222222',
-        name: 'Dispositivo B',
-        location: 'Sala 2',
-        sn: '987654321098',
-        description: 'Sensor de temperatura',
-        user_id: 'fake-user-id',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-    ];
-    setDevices(mockDevices);
+    const data = await fetchDevices(user_id);
+    setDevices(data);
   };
-
 
   useEffect(() => {
     loadDevices();
-  }, []);
+  }, [user_id]);
 
   const handleAdd = async (device: Partial<Device>) => {
+    //console.log('Adding device:', device);
     await createDevice({ ...device, user_id });
     loadDevices();
   };
@@ -70,11 +49,12 @@ const DevicesPage = () => {
   };
 
   const handleEdit = async (device: Partial<Device>) => {
+    //console.log('Editing device:', device);
     if (editingDevice) {
       await updateDevice(editingDevice.uuid, device);
       setEditingDevice(null);
       loadDevices();
-    }
+    } 
   };
 
   const handleDelete = async (uuid: string) => {
@@ -86,8 +66,20 @@ const DevicesPage = () => {
     
   };
 
-  const handleFilterDevices = () => {
-    
+  const handleFilter = ({ name, days }: { name: string; days: number }) => {
+    const now = new Date();
+    const pastDate = new Date(now);
+    pastDate.setDate(now.getDate() - days);
+
+    const filtered = devices.filter((device) => {
+      const createdAt = new Date(device.created_at);
+      return (
+        device.name.toLowerCase().includes(name.toLowerCase()) &&
+        createdAt >= pastDate
+      );
+    });
+
+    setDevices(filtered);
   };
 
   return (
@@ -108,7 +100,7 @@ const DevicesPage = () => {
               updated_at: new Date().toISOString(),
             });
           }}
-          onFilter={handleFilterDevices} 
+          onFilter={handleFilter} 
         />
 
         <DeviceList
@@ -132,6 +124,7 @@ const DevicesPage = () => {
               handleAdd(device);
             }
           }}
+          onDelete={handleDelete}
         />
 
       </div>

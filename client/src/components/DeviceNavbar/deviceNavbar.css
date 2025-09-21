@@ -1,0 +1,34 @@
+.device-navbar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+}
+
+.navbar-button.add {
+  background-color: #007bff;
+}
+
+.navbar-button.add:hover {
+  background-color: #0056b3;
+}
+
+.navbar-button.filter {
+  background-color: #6c757d;
+}
+
+.navbar-button.filter:hover {
+  background-color: #5a6268;
+}

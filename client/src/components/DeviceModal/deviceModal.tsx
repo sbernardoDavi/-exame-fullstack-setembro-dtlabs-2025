@@ -8,9 +8,10 @@ type Props = {
   isEditing: boolean;
   onClose: () => void;
   onSave: (device: Device) => void;
+  onDelete: (uuid: string) => void;
 };
 
-const DeviceModal: React.FC<Props> = ({ visible, device, isEditing, onClose, onSave }) => {
+const DeviceModal: React.FC<Props> = ({ visible, device, isEditing, onClose, onSave, onDelete }) => {
   const [formData, setFormData] = useState<Device | null>(null);
   useEffect(() => {
         if (device) {
@@ -33,6 +34,14 @@ const DeviceModal: React.FC<Props> = ({ visible, device, isEditing, onClose, onS
         }
     };
 
+    const handleDelete = () => {
+      if (formData?.uuid) {
+        onDelete(formData.uuid);
+        onClose();
+      }
+    };
+
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -52,8 +61,16 @@ const DeviceModal: React.FC<Props> = ({ visible, device, isEditing, onClose, onS
           Serial Number:
           <input
             type="text"
+            maxLength={12}
+            pattern="\d{12}"
             value={formData.sn || ''}
-            onChange={(e) => handleChange('sn', e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (/^\d{0,12}$/.test(value)) {
+                handleChange('sn', value);
+              }
+            }}
+            required
           />
         </label>
 
@@ -76,7 +93,9 @@ const DeviceModal: React.FC<Props> = ({ visible, device, isEditing, onClose, onS
 
         <div className="modal-actions">
           <button className="modal-button save" onClick={handleSubmit}>Salvar</button>
-          <button className="modal-button cancel" onClick={onClose}>Cancelar</button>
+          {isEditing && (
+            <button className="modal-button remove" onClick={handleDelete}>Apagar</button>
+          )}
         </div>
       </div>
     </div>

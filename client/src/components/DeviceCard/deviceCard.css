@@ -1,0 +1,169 @@
+.device-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.device-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 220px;
+  background-color: #f9f9f9;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.device-card:hover {
+  background-color: #e6f0ff;
+}
+
+.device-checkbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transform: scale(1.2);
+}
+
+.device-name {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.no-devices-text {
+  padding: 1rem;
+  font-style: italic;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-button.edit {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.modal-button.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+.modal-edit-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.modal-edit-form input,
+.modal-edit-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.modal-edit-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.modal-button.save {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.modal-button.cancel {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.modal-button.save:hover {
+  background-color: #000000;
+}
+
+.modal-button.delete:hover {
+  background-color: #000000;
+}
+
+.modal-button.cancel:hover {
+  background-color: #000000;
+}
+
+.modal-button.edit:hover {
+  background-color: #000000;
+}
+
+.add-new-card {
+  cursor: pointer;
+  border: 2px dashed #888;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.add-new-card:hover {
+  background-color: #f0f0f0;
+}
+
+.add-icon {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+

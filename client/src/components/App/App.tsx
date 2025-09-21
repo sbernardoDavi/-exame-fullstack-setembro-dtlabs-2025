@@ -1,11 +1,11 @@
 // src/App.tsx
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import LoginPage from '../Login/loginPage';
-import HomePage from '../Home/homePage';
+import LoginPage from '../../pages/Login/loginPage';
+import HomePage from '../../pages/Home/homePage';
 import PrivateRoute from '../PrivateRoute/privateRoute';
-import DevicePage from '../Devices/devices';
 import RegisterPage from '../Register/register';
+import DevicesPage from '../../pages/Devices/devices';
 
 function App() {
   return (
@@ -18,15 +18,12 @@ function App() {
           </PrivateRoute>
         } />
         <Route path="*" element={<Navigate to="/login" />} />
-        <Route
-          path="/devices"
-          element={
-            <PrivateRoute>
-              <DevicePage />
-            </PrivateRoute>
-          }
-        />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/devices" element={
+          <PrivateRoute>
+            <DevicesPage />
+          </PrivateRoute>
+        } />
       </Routes>
     </Router>
   );

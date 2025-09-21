@@ -54,7 +54,7 @@ function LoginPage() {
           />
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
-          <a className='remember' href='#'>
+          <a className='remember' href='/login'>
             Esqueceu a senha?
           </a>
         </div>

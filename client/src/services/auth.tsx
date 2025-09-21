@@ -15,6 +15,6 @@ export async function login(email: string, password: string) {
   }
 
   const data = await response.json();
-  console.log('Login bem-sucedido, token recebido:', data.token);
+  //console.log('Login bem-sucedido, token recebido:', data.token);
   return data.token;
 }

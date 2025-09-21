@@ -62,7 +62,7 @@ function LoginPage() {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className='button-group'>
           <button className='button-login' type="submit">Logar</button>
-          <button className='button-register' onClick={handleRegister}>Cadastrar</button>
+          <button className='button-register' type='button' onClick={handleRegister}>Cadastrar</button>
         </div>
       </form>
     </div>
